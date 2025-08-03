@@ -1,0 +1,155 @@
+body {
+    background-color: #55BDAD;
+}
+
+.main-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    background-color: #ffffffbb;
+    padding: 0px;
+    border-radius: 12px;
+}
+
+.decorative-image {
+    margin-left: 30px;
+    flex-shrink: 0;
+}
+
+.decorative-image img {
+    width: 150px;
+    height: 150px;
+}
+
+.connexion-container {
+    background-color: #fff;
+    width: 300px;
+    max-width: 400px;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 17px;
+    border-radius: 0px 12px 12px 0px;
+    flex-shrink: 0;
+}
+
+.connexion-title {
+    text-align: center;
+    color: #000000;
+}
+
+.champ {
+    margin-bottom: 15px;
+}
+
+.champ label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.champ input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;     
+    box-sizing: border-box;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    padding-right: 40px; 
+}
+
+.mdp {
+    position: absolute;
+    right: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mdp:hover {
+    background: rgba(150, 150, 150, 0.1);
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color : white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.success {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #7395b8;
+    border-radius: 4px; 
+}
+
+.error {
+    color: #721c24;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8d7da;
+    border-radius: 4px;
+}
+
+.inscription {
+    flex: 1;
+}
+
+.inscription button {
+    text-align: right;
+    background: none;
+    border: none;
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 0;
+    font-size: 10px;
+}
+
+.inscription button:hover {
+    color: #ac20e4;
+    background: none;
+}
+
+.image-container {
+    flex: 0 0 auto;
+    margin-left: 10px;
+}
+
+.image-container img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}

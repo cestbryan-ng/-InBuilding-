@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SumCalculator.css';
+import './App.css';
 
 const SumCalculator = () => {
   const [number1, setNumber1] = useState('');
@@ -14,10 +14,11 @@ const SumCalculator = () => {
     setError(null);
 
     try {
-      const response = await fetch('https://votre-api.com/somme', {
+      const response = await fetch('http://localhost:8000/api/somme', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           nombre1: parseFloat(number1),
@@ -32,6 +33,7 @@ const SumCalculator = () => {
       const data = await response.json();
       setSum(data.somme);
     } catch (err) {
+      console.error('Erreur:', err);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -41,7 +43,7 @@ const SumCalculator = () => {
   return (
     <div className="calculator-container">
       <h2>Calculateur de somme</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="input-group">
           <label htmlFor="number1">Premier nombre:</label>
           <input
@@ -64,7 +66,7 @@ const SumCalculator = () => {
           />
         </div>
 
-        <button type="submit" disabled={loading}>
+        <button type="button" disabled={loading} onClick={handleSubmit}>
           {loading ? 'Calcul en cours...' : 'Calculer la somme'}
         </button>
       </form>
