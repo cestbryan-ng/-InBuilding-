@@ -81,16 +81,16 @@ const App2 = () => {
             setError('Le mot de passe doit contenir des minuscules et des majuscules');
             return false;
         }
+        let compteur = 0;
+        let chiffres = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
         for (let i = 0; i < password.length; i++) {
-            let compteur = 0;
-            let chiffres = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-            if (password[i] in chiffres) compteur++;
-            if (compteur > 2) {
-                return true;
-            } else {
-                setError('Le mot de passe doit contenir au moins 2 chiffres');
-                return false;
-            }
+            if (chiffres.includes(password[i])) compteur++;
+        }
+        if (compteur >= 2) {
+            return true;
+        } else {
+            setError('Le mot de passe doit contenir au moins 2 chiffres');
+            return false;
         }
     }
 
