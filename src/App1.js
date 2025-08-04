@@ -4,6 +4,7 @@ import './App1.css';
 
 const App1 = () => {
     const navigate = useNavigate();
+    const [id, setId] = useState(null);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ const App1 = () => {
     const [success, setSuccess] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
-    const connexion = (async) => {
+    const connexion =  async () => {
         setError(null);
         setSuccess(false)
 
@@ -27,7 +28,31 @@ const App1 = () => {
         setLoading(true);
 
         try {
+            const response = await fetch('http://localhost:8000/api/connexion', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password
+                }),
+            });
 
+            if (!response.ok) {
+                throw new Error('Erreur lors de la connexion');
+            }
+
+            const data = await response.json();
+            if (!data.success) {
+                throw new Error('Compte inexistant');
+            }
+
+            setId(data.id);
+            setSuccess(true);
+            setUsername('');
+            setPassword('');
         } catch (err) {
             console.error('Erreur:', err);
             setError(err.message);
