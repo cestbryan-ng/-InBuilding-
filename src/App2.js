@@ -84,7 +84,7 @@ const App2 = () => {
         let compteur = 0;
         let chiffres = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
         for (let i = 0; i < password.length; i++) {
-            if (chiffres.includes(password[i])) compteur++;
+            if (chiffres.includes(password[i])) compteur++; 
         }
         if (compteur >= 2) {
             return true;
